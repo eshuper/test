@@ -187,13 +187,13 @@ const weather = [
   };
 
   function iconCheck(weather) {
-    if (weather.cloudiness == "Облачно" && weather.snow == false && weather.rain == false) {
+    if (weather.cloudiness === "Облачно" && weather.snow === false && weather.rain === false) {
       return 'wi-cloud'
-    } else if (weather.cloudiness == "Облачно" && weather.snow == true && weather.rain == false) {
+    } else if (weather.cloudiness === "Облачно" && weather.snow === true && weather.rain === false) {
       return 'wi-snow'
-    } else if (weather.cloudiness == "Облачно" && weather.snow == false && weather.rain == true) {
+    } else if (weather.cloudiness === "Облачно" && weather.snow === false && weather.rain === true) {
       return 'wi-rain'
-    } else if (weather.cloudiness == "Облачно" && weather.snow == true && weather.rain == true) {
+    } else if (weather.cloudiness === "Облачно" && weather.snow === true && weather.rain === true) {
       return 'wi-sleet'
     } else {
       return 'wi-day-sunny';
@@ -201,11 +201,11 @@ const weather = [
   };
 
   function rainfallCheck(weather) {
-    if (weather.rain == true && weather.snow == false) {
+    if (weather.rain === true && weather.snow === false) {
       return 'дождь'
-    } else if (weather.rain == true && weather.snow == true) {
+    } else if (weather.rain === true && weather.snow === true) {
       return 'дождь со снегом'
-    } else if (weather.rain == false && weather.snow == true) {
+    } else if (weather.rain === false && weather.snow === true) {
       return 'снег'
     } else {
       return 'без осадков'
@@ -214,7 +214,7 @@ const weather = [
 
   function checkDay(date) {
     let dayJson = new Date (date);
-    let dayJsonCheck = new Date(date).getDay();
+    let dayJsonCheck = dayJson.getDay();
     let dayToday = new Date().getDay();
     if (dayJsonCheck === dayToday) {
       return 'cегодня'
@@ -254,8 +254,8 @@ const weather = [
   document.querySelector(".prev").onclick = sliderLeft;
   document.querySelector(".next").onclick = sliderRight;
 
-  var appBlockPosition = 0;
-  var slider = document.querySelector(".weather-blocks");
+  let appBlockPosition = 0;
+  let slider = document.querySelector(".weather-blocks");
 
   function sliderLeft() {
     if(appBlockPosition < 0) {
